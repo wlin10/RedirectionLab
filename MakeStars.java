@@ -7,7 +7,10 @@ public class MakeStars{
       Scanner n = new Scanner( System.in );
       //use hasNextLine()/nextLine() to loop over
       //all of the data
-      
+      while(n.hasNextLine()) {
+        System.out.print(n.nextLine() + "\n");
+      }
+      n.close();
 
       //If you want to read the input word by word
       //this can be replaced with hasNext() and next()
