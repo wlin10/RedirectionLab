@@ -18,6 +18,20 @@ public class PigLatin{
     }
   }
 
+  public static String pigLatin(String s){
+    List<String> digraphs = Arrays.asList("bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr");
+    char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+    String ans = "";
+    if (Arrays.asList(vowels).contains(s.charAt(0)) || s.length() == 1) {
+      ans = (s + "hay");
+    } else if (digraphs.contains(s.substring(0,2))) {
+      ans = (s.substring(2) + s.substring(0, 2) + "hay");
+    } else {
+      ans = (s.substring(1) + s.charAt(0) + "hay");
+    }
+    return (ans.toLowerCase());
+  }
+
   public static void main( String[]args ){
       //use the standard input (terminal input)
       //as the string that you read from
