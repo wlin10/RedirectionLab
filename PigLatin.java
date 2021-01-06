@@ -1,6 +1,23 @@
 import java.util.*;
 public class PigLatin{
 
+  public static String pigLatinSimple(String s){
+    if (s.equals("")) {
+      return s;
+    }
+    if (s.charAt(0) == 'a' ||
+    s.charAt(0) == 'e' ||
+    s.charAt(0) == 'i' ||
+    s.charAt(0) == 'o' ||
+    s.charAt(0) == 'u' ||
+    s.length() == 1) {
+      return (s + "hay");
+    } else {
+      String x = (s.substring(1) + s.charAt(0));
+      return (x + "hay");
+    }
+  }
+
   public static void main( String[]args ){
       //use the standard input (terminal input)
       //as the string that you read from
@@ -10,7 +27,7 @@ public class PigLatin{
       while(n.hasNextLine()) {
         Scanner n1 = new Scanner(n.nextLine());
         while(n1.hasNext()) {
-          System.out.print(n1.next() + " ");
+          System.out.print(pigLatinSimple(n1.next()) + " ");
         }
         System.out.println();
       }
