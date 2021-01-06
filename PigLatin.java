@@ -14,7 +14,7 @@ public class PigLatin{
       return (s + "hay");
     } else {
       String x = (s.substring(1) + s.charAt(0));
-      return (x + "hay");
+      return ((x + "hay").toLowerCase());
     }
   }
 
@@ -33,26 +33,19 @@ public class PigLatin{
   }
 
   public static String pigLatinBest(String s){
-    List<String> digraphs = Arrays.asList("bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr");
-    char[] vowels = {'a', 'e', 'i', 'o', 'u'};
     String ans = "";
-    if (Character.isLetter(s.charAt(0))) {
-      ans = (s.toLowerCase());
-    } else if (Arrays.asList(vowels).contains(s.charAt(0)) || s.length() == 1) {
-      ans = ((s + "hay").toLowerCase());
-    } else if (digraphs.contains(s.substring(0,2))) {
-      ans = ((s.substring(2) + s.substring(0, 2) + "hay").toLowerCase());
-    } else {
-      ans = ((s.substring(1) + s.charAt(0) + "hay").toLowerCase());
-    }
+    String temp = s;
+    char punc = 'a';
     if (!(Character.isDigit(s.charAt(s.length()-1)) || Character.isLetter(s.charAt(s.length()-1)))) {
-      String punc = (s.charAt(s.length()-1) + "");
-      for (int i = 0; i < ans.length(); i++) {
-        int x = ans.indexOf(punc);
-        ans = (ans.substring(x-1) + ans.substring(x+1, ans.length()) + punc);
-      }
+      punc = s.charAt(s.length()-1);
+      temp = s.substring(0, s.length()-1);
     }
-    return ans;
+    if (!(Character.isLetter(s.charAt(0)))) {
+      ans = (s.toLowerCase());
+    } else {
+      ans = pigLatin(temp);
+    }
+    return (ans + punc);
   }
 
   public static void main( String[]args ){
