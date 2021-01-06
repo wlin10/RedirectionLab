@@ -2,6 +2,7 @@ import java.util.*;
 public class PigLatin{
 
   public static String pigLatinSimple(String s){
+    s = s.toLowerCase();
     if (s.equals("")) {
       return s;
     }
@@ -14,13 +15,14 @@ public class PigLatin{
       return (s + "hay");
     } else {
       String x = (s.substring(1) + s.charAt(0));
-      return ((x + "ay").toLowerCase());
+      return (x + "ay");
     }
   }
 
   public static String pigLatin(String s){
     List<String> digraphs = Arrays.asList("bl", "br", "ch", "ck", "cl", "cr", "dr", "fl", "fr", "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc", "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th", "tr", "tw", "wh", "wr");
     String ans = "";
+    s = s.toLowerCase();
     if (s.charAt(0) == 'a' ||
     s.charAt(0) == 'e' ||
     s.charAt(0) == 'i' ||
@@ -40,6 +42,7 @@ public class PigLatin{
     String ans = "";
     String temp = s;
     char punc = 'a';
+    s = s.toLowerCase();
     if (!(Character.isDigit(s.charAt(s.length()-1)) || Character.isLetter(s.charAt(s.length()-1)))) {
       punc = s.charAt(s.length()-1);
       temp = s.substring(0, s.length()-1);
@@ -59,13 +62,16 @@ public class PigLatin{
       Scanner n = new Scanner( System.in );
       //use hasNextLine()/nextLine() to loop over
       //all of the data
+      String ans = "";
+
       while(n.hasNextLine()) {
         Scanner n1 = new Scanner(n.nextLine());
         while(n1.hasNext()) {
-          System.out.print(pigLatinBest(n1.next()) + " ");
+          ans += (pigLatinBest(n1.next()) + " ");
         }
-        System.out.println();
+        ans += ("\n");
       }
+      System.out.print(ans.substring(0, ans.length()-1));
       n.close();
 
       //If you want to read the input word by word
