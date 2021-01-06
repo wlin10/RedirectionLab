@@ -14,7 +14,7 @@ public class PigLatin{
       return (s + "hay");
     } else {
       String x = (s.substring(1) + s.charAt(0));
-      return ((x + "hay").toLowerCase());
+      return ((x + "ay").toLowerCase());
     }
   }
 
@@ -31,7 +31,7 @@ public class PigLatin{
     } else if (digraphs.contains(s.substring(0,2))) {
       ans = (s.substring(2) + s.substring(0, 2) + "ay");
     } else {
-      ans = (s.substring(1) + s.charAt(0) + "hay");
+      ans = (s.substring(1) + s.charAt(0) + "ay");
     }
     return (ans.toLowerCase());
   }
