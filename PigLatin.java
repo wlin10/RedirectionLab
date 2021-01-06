@@ -69,6 +69,7 @@ public class PigLatin{
         while(n1.hasNext()) {
           ans += (pigLatinBest(n1.next()) + " ");
         }
+        ans = ans.substring(0, ans.length()-1);
         ans += ("\n");
       }
       System.out.print(ans.substring(0, ans.length()-1));
