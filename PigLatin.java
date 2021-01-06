@@ -70,7 +70,10 @@ public class PigLatin{
           ans += (pigLatinBest(n1.next()) + " ");
         }
         ans = ans.substring(0, ans.length()-1);
-        System.out.println(ans);
+        System.out.print(ans);
+        if (n.hasNextLine()) {
+          System.out.println();
+        }
       }
       n.close();
 
