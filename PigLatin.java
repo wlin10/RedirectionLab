@@ -35,7 +35,7 @@ public class PigLatin{
     } else {
       ans = (s.substring(1) + s.charAt(0) + "ay");
     }
-    return (ans.toLowerCase());
+    return ans;
   }
 
   public static String pigLatinBest(String s){
@@ -62,17 +62,16 @@ public class PigLatin{
       Scanner n = new Scanner( System.in );
       //use hasNextLine()/nextLine() to loop over
       //all of the data
-      String ans = "";
 
       while(n.hasNextLine()) {
         Scanner n1 = new Scanner(n.nextLine());
+        String ans = "";
         while(n1.hasNext()) {
           ans += (pigLatinBest(n1.next()) + " ");
         }
         ans = ans.substring(0, ans.length()-1);
-        ans += ("\n");
+        System.out.println(ans);
       }
-      System.out.print(ans.substring(0, ans.length()-1));
       n.close();
 
       //If you want to read the input word by word
